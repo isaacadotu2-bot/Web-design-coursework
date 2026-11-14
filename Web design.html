@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<HTML LANG="en">
+<HEAD>
+  <META CHARSET="UTF-8">
+  <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+  <TITLE>Chromelite Technologies Limited &mdash; Branding, Signage and Steel</TITLE>
+  <LINK REL="stylesheet" HREF="styles.css">
+</HEAD>
+<BODY>
+
+  <!--
+    CLASS vs ID CHOICE
+    - ID is used for sections that appear ONCE on the page (navbar, sidebar,
+      main-content, footer, and each of the four main sections). An ID must be unique.
+    - CLASS is used for elements that REPEAT (navigation links, quick links,
+      service cards). A CLASS can be applied to many elements.
+    Layout and colour come from the external file styles.css.
+  -->
+
+  <!-- Navigation bar -->
+  <DIV ID="navbar">
+    <UL CLASS="nav-list">
+      <LI><A CLASS="nav-link" HREF="#about">About Us</A></LI>
+      <LI><A CLASS="nav-link" HREF="#services">Services</A></LI>
+      <LI><A CLASS="nav-link" HREF="#projects">Projects</A></LI>
+      <LI><A CLASS="nav-link" HREF="#contact">Contact</A></LI>
+    </UL>
+  </DIV>
+
+  <!-- Sidebar and main content sit side by side (Flexbox in styles.css) -->
+  <DIV CLASS="page-wrapper">
+
+    <!-- Sidebar of quick links -->
+    <DIV ID="sidebar">
+      <H3>Quick Links</H3>
+      <UL CLASS="quick-links">
+        <LI CLASS="quick-link"><A HREF="#about">About Us</A></LI>
+        <LI CLASS="quick-link"><A HREF="#services">Our Services</A></LI>
+        <LI CLASS="quick-link"><A HREF="#projects">Our Projects</A></LI>
+        <LI CLASS="quick-link"><A HREF="#contact">Contact Us</A></LI>
+      </UL>
+    </DIV>
+
+    <!-- Main content area with four sub-sections -->
+    <DIV ID="main-content">
+
+      <DIV ID="about" CLASS="content-section">
+        <H2>About Us</H2>
+        <P>Chromelite Technologies Limited is a Kampala-based company providing <STRONG>branding,
+          signage and structural steel supply</STRONG>. We have served businesses, institutions and
+          property developers across the Central Region since our founding.</P>
+        <P>Our team combines design skills with fabrication expertise, so a client can
+          move from a logo concept to a finished sign or steel structure under one roof.</P>
+      </DIV>
+
+      <DIV ID="services" CLASS="content-section">
+        <H2>Our Services</H2>
+        <P>We offer a complete range of visual identity and fabrication services, tailored to
+          the needs of small businesses and large projects alike.</P>
+        <P>Every job begins with a site or brand assessment, followed by design approval and
+          a clear delivery timeline before production starts.</P>
+
+        <DIV CLASS="cards">
+          <DIV CLASS="service-card">
+            <H3>Signage</H3>
+            <P>Illuminated and non-illuminated signs for shops, offices and estates.</P>
+          </DIV>
+          <DIV CLASS="service-card">
+            <H3>Vehicle Branding</H3>
+            <P>Full wraps, partial livery and decals for fleets, vans and taxis.</P>
+          </DIV>
+          <DIV CLASS="service-card">
+            <H3>Printing</H3>
+            <P>Banners, posters, brochures and large-format print for campaigns and events.</P>
+          </DIV>
+          <DIV CLASS="service-card">
+            <H3>Steel Fabrication</H3>
+            <P>Gates, frames, sign structures and custom metalwork cut and welded to specification.</P>
+          </DIV>
+        </DIV>
+      </DIV>
+
+      <DIV ID="projects" CLASS="content-section">
+        <H2>Our Projects</H2>
+        <P>Over the years we have delivered branding packages for retail outlets, fleet
+          livery for transport operators and steel structures for commercial buildings.</P>
+        <P>Each project is documented from design to installation, so clients can see the
+          result and the process behind it. Samples are available on request.</P>
+      </DIV>
+
+      <HR SIZE="3" COLOR="#028090">
+
+      <DIV ID="contact" CLASS="content-section">
+        <H2>Contact Us</H2>
+        <P>Speak to our team about your next branding, signage or steel project. We
+          respond to all enquiries within one working day.</P>
+        <P>
+          <STRONG>Phone:</STRONG> <A CLASS="contact-link" HREF="tel:+256700000000">+256 700 000 000</A><BR>
+          <STRONG>Email:</STRONG> <A CLASS="contact-link" HREF="mailto:info@chromelite.example">info@chromelite.example</A>
+        </P>
+      </DIV>
+
+    </DIV>
+  </DIV>
+
+  <!-- Footer spans the full width of the page -->
+  <DIV ID="footer">
+    <P>&copy; <SPAN ID="year"></SPAN> Chromelite Technologies Limited &mdash; All rights reserved.</P>
+  </DIV>
+
+  <SCRIPT>
+    // Show the current year in the footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </SCRIPT>
+</BODY>
+</HTML>

@@ -1,0 +1,176 @@
+/* =====================================================
+   COLOUR SCHEME
+   Three main colours (primary, accent, dark) plus neutrals.
+   Defined once here and reused throughout the stylesheet
+   with var().
+   ===================================================== */
+:root {
+  --primary-colour: #1d4e89;   /* main brand blue */
+  --accent-colour:  #f4a261;   /* highlight orange */
+  --dark-colour:    #2b2d42;   /* text and footer */
+  --light-colour:   #f8f9fa;   /* neutral: page background */
+  --neutral-grey:   #6c757d;   /* neutral: secondary text */
+  --white:          #ffffff;   /* neutral: cards and panels */
+}
+
+/* ----- Base page styles ----- */
+body {
+  margin: 0;                            /* remove the default browser margin */
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--light-colour);
+  color: var(--dark-colour);
+  line-height: 1.6;                     /* space between lines of text */
+}
+
+h2 {
+  color: var(--primary-colour);
+  border-bottom: 3px solid var(--accent-colour);   /* underline bar */
+  padding-bottom: 6px;                  /* space between text and underline */
+}
+
+/* ----- Navbar ----- */
+#navbar {
+  background-color: var(--primary-colour);
+  padding: 12px 20px;
+}
+
+.nav-list {
+  list-style: none;                     /* remove bullet points */
+  display: flex;                        /* lay the links out in a row */
+  justify-content: center;              /* centre the row */
+  flex-wrap: wrap;                      /* wrap onto a new line if needed */
+  gap: 20px;                            /* space between links */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--white);
+  text-decoration: none;                /* remove the underline */
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;   /* smooth hover change */
+}
+
+.nav-link:hover {
+  background-color: var(--accent-colour);
+  color: var(--dark-colour);
+}
+
+/* ----- Layout: sidebar and main content side by side ----- */
+.page-wrapper {
+  display: flex;                        /* place children in a row */
+  gap: 5%;                              /* visible gap: 25% + 5% + 70% = 100% */
+  padding: 20px;
+  box-sizing: border-box;               /* padding is included in the width */
+}
+
+#sidebar {
+  flex: 0 0 25%;                        /* do not grow or shrink; 25% wide */
+  box-sizing: border-box;
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 8px;
+  align-self: flex-start;               /* sidebar only as tall as its content */
+}
+
+#main-content {
+  flex: 0 0 70%;                        /* do not grow or shrink; 70% wide */
+  box-sizing: border-box;
+}
+
+/* ----- Sidebar quick links ----- */
+#sidebar h3 {
+  color: var(--primary-colour);
+  margin-top: 0;
+}
+
+.quick-links {
+  list-style: none;                     /* remove bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.quick-link a {
+  display: block;                       /* whole row is clickable */
+  padding: 8px 0;
+  color: var(--primary-colour);
+  text-decoration: none;
+  border-bottom: 1px solid #dee2e6;     /* divider between links */
+}
+
+.quick-link a:hover {
+  color: var(--dark-colour);
+  text-decoration: underline;
+}
+
+/* ----- Content sections ----- */
+.content-section {
+  background-color: var(--white);
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);   /* soft drop shadow */
+  scroll-margin-top: 20px;              /* keeps the heading visible after a sidebar jump */
+}
+
+/* ----- Service cards ----- */
+.cards {
+  display: grid;                        /* arrange cards in a grid */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));   /* as many 180px+ columns as fit */
+  gap: 16px;
+}
+
+.service-card {
+  background-color: var(--light-colour);
+  border-top: 4px solid var(--accent-colour);   /* coloured top edge */
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.service-card h3 {
+  color: var(--primary-colour);
+  margin-top: 0;
+}
+
+/* ----- Contact links ----- */
+.contact-link {
+  color: var(--primary-colour);
+  font-weight: bold;
+}
+
+/* ----- Footer: full width ----- */
+#footer {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--dark-colour);
+  color: var(--white);
+  text-align: center;
+  padding: 16px 20px;
+}
+
+#footer p {
+  margin: 0;                            /* remove the paragraph margin */
+}
+
+/* ----- Responsive: below 768px, the sidebar moves under the main content ----- */
+@media (max-width: 767px) {
+  .page-wrapper {
+    flex-direction: column;             /* stack the children vertically */
+    gap: 20px;
+  }
+
+  #sidebar,
+  #main-content {
+    flex: none;                         /* cancel the 25% and 70% widths */
+    width: 100%;
+  }
+
+  #sidebar {
+    order: 2;                           /* display the sidebar after the main content */
+  }
+
+  #main-content {
+    order: 1;
+  }
+}
